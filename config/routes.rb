@@ -6,8 +6,4 @@ Rails.application.routes.draw do
     resources :albums, :only => [:index, :create, :show, :update, :destroy]
   end
 
-  post '/users/:id/albums/search' => 'albums#search', as: 'album_search'
-  get '/auth/spotify/callback' => 'sessions#create'
-  post '/sessions', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
 end
