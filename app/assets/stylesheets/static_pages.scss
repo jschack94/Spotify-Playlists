@@ -1,0 +1,26 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#log_in {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -200px;
+    display: inline-block;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  #log_in_button {
+    border: none;
+    background-color: #f9f7f7;
+    text-decoration: underline;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+  }

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SpotifyApp</title>
+    <title>InTheWav</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag "application" %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
   <body>
+    <h6 id="screen_warning">This web app is intended for desktop sized screens. A mobile version is in the works. Ye be warned.</h6>
     <%= yield %>
   </body>
+
+  <footer>
+   
+  </footer>
 </html>

@@ -107,6 +107,7 @@ m = Module.new do
   end
 end
 
+
 m.load_bundler!
 
 if m.invoked_as_script?
