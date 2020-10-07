@@ -1,0 +1,54 @@
+<!--Title-->
+<h1 class="title" id="main_title">In The Wav.</h1>
+
+<div id="main">
+  <div id="grid">
+    <!--Add Album Section-->
+    <div id="album_add_container">
+      <h5>Add Album</h5>
+        <div class='form'>
+          <%= form_tag(album_search_url(@user), {:id => 'search_form'}) do %>
+            <%= text_field_tag :search %>
+            <%= hidden_field_tag 'credentials', current_user.credentials %>
+            <%= submit_tag "Search", class: 'button', data: { disable_with: false } %>
+          <% end %>
+        </div>
+      <!--Search Results-->
+      <div id="search_results">
+        <ul id="search_results_list">
+        </ul>
+      </div>
+    </div>
+
+    <!--Album List-->
+    <div id="album_list_container">
+      <ul id="album_list">
+        <% if current_user.albums.empty? %>
+          <img src="https://media.giphy.com/media/3xU22GnGEP2r6/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/5yLgocnSlDKgWymJ5fi/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/ukqOBz4W0ApnDLUw23/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/3qskbFZJ0Z9q0b1rfY/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/UsGbPVVuNBoMo/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/1dMMbcYiO40OX6e8zm/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/9xyVBrgWR3aA2BAHLX/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/NPSBznfytOtCo/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/WXkgDxZxSeMQo/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/fe4dwRw6nZKWDRjMzP/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/t7syKPdeSZ8SwhQ1Hz/giphy.gif" height='125' width='125'>
+          <img src="https://media.giphy.com/media/28mkBBJuyIEPVRbypT/giphy.gif" height='125' width='125'>
+          
+        <% else current_user.albums.each do |a| %>
+          <li class="albums"><%= link_to (image_tag(a.image_url, :alt => "album_cover", height: "125", width: "125")), [current_user, a], class: "more_info"%></li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <!--Album Info-->
+    <div id="album_info_container">
+      <div id="show_album">
+      </div>
+    </div>
+  </div>
+  <p id="log_out"><%= current_user.username %> ― <%= link_to "Logout", logout_path %></p>
+</div>

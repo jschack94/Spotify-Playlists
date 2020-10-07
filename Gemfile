@@ -29,9 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use Spotify Authorization
-gem 'omniauth-spotify'
 gem 'dotenv-rails'
-gem 'rspotify', '~> 1.18'
+gem 'rspotify'
 # Upload Images
 gem 'paperclip'
 gem 'pry'

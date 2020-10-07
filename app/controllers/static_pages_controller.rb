@@ -2,8 +2,7 @@ class StaticPagesController < ApplicationController
 
     # Verify user before showing single page of web app
     def home
-  
-  
+      @user = User.new
     end
   
     private

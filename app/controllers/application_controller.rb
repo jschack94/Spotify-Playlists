@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    # Spotify API connection gem
-    RSpotify::authenticate('bc3e04e361c44c0c9bc5691dde504544', '86ba61eb73e645c1b975193f54f74f59')
+
   
     # User log in verification
     def authentication_required
