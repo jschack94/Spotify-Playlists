@@ -22,10 +22,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # Future search function
-  # def search
-  # end
-
   # Show album details
   def show
     @album = Album.find(params[:id])

@@ -2,12 +2,10 @@ class StaticPagesController < ApplicationController
 
   # Verify user before showing single page of web app
   def home
-    if current_user
-      redirect_to user_albums_path(@user)
-    else
-      @user = User.new
+   
+     
     end
-  end
+  
 
   private
 
