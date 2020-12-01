@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post '/users/:id/albums/search' => 'albums#search', as: 'album_search'
   get '/auth/spotify/callback' => 'sessions#create'
   post '/sessions', to: 'sessions#create'
-  get '/logou', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 end
