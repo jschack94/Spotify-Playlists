@@ -36,6 +36,7 @@ function Album(name, artist, releaseDate, externalUrl, imageUrl) {
         $search_list.html("")
         let i = 0
         $.each(response.albums.items, function(name, value) {
+          debugger
           let nameAtt = value.name
           let artist = value.artists[0].name
           let releaseDate = value.release_date
@@ -56,7 +57,7 @@ function Album(name, artist, releaseDate, externalUrl, imageUrl) {
         //Persist Album in Database
         $(function createAlbum() {
           $("form.add_album").on('click', function(e){
-            let that = $(this);
+            
             e.preventDefault();
             url = this.action
             data = {
@@ -81,7 +82,7 @@ function Album(name, artist, releaseDate, externalUrl, imageUrl) {
                   e.preventDefault()
                     $.ajax({
                       type: "GET",
-                      url: this.href + ".json"
+                      url: this.href
                     }).done(function(data) {
                       var $show_album = $('#show_album')
                       $show_album.empty()
@@ -109,36 +110,8 @@ function Album(name, artist, releaseDate, externalUrl, imageUrl) {
       });
     });
   
-    //'More Info' functionality with adding an Album first
-    $('.more_info').on('click', function(e) {
-      e.preventDefault()
-        $.ajax({
-          type: "GET",
-          url: this.href,
-          contentType: 'application/json'
-        }).done(function(data) {
-          var $show_album = $('#show_album')
-          $show_album.empty()
-          $('#show_album').append("<img src='" + data.image_url + "' heigh='200' width='200'><h6 id='show_name'>" + data.name + "</h6><p>" + data.artist + "</p><a href='" + data.external_url + "' target='_blank' rel='noopener noreferrer'>Listen</a>")
-        })
-    })
-  
-    $('#alphabatize').on('click', function(e) {
-      e.preventDefault();
-        $.get(this.href, function(data) {
-          $('#album_list').empty()
-  
-          // data.sort(function(a, b) {
-          //   return compareNames(a.name, b.name);
-          // })
-  
-          data.sort(compareNames)
-  
-          $.each(data, function(i, name) {
-            $('#album_list').append('<li>' + data[i].name + ' --- ' + "<a href='/users/" + data[i].user_id + "/albums/" + data[i].id + "' class='more_info'>More Info</a> - <a href='" + data[i].external_url + "' target='_blank' rel='noopener noreferrer'>LISTEN!</a></li>")
-          })
-  
-          $('.more_info').on('click', function(e) {
+ 
+  $('.more_info').on('click', function(e) {
             e.preventDefault()
               $.ajax({
                 type: "GET",
@@ -151,13 +124,7 @@ function Album(name, artist, releaseDate, externalUrl, imageUrl) {
               })
           })
         }, "json")
-    })
+    
   
-    function compareNames(a, b) {
-      a = a.name.toLowerCase();
-      b = b.name.toLowerCase();
+
   
-      return (a < b) ? -1 : (a > b) ? 1 : 0;
-    }
-  
-  });
