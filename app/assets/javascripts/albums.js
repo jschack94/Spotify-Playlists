@@ -2,19 +2,19 @@
 
 //Album Constructor Function
 function Album(name, artist, releaseDate, externalUrl, imageUrl) {
-    this.name = name
-    this.artist = artist
-    this.releaseDate = releaseDate
-    this.externalUrl = externalUrl
-    this.imageUrl = imageUrl
-  
-    //Custom Album Object Method
-    this.recent = function() {
-      if (this.releaseDate > "2018-01-01")
-        return "Recent!"
-    }
+  this.name = name
+  this.artist = artist
+  this.releaseDate = releaseDate
+  this.externalUrl = externalUrl
+  this.imageUrl = imageUrl
+
+  //Custom Album Object Method
+  this.recent = function() {
+    if (this.releaseDate > "2018-01-01")
+      return "Recent!"
   }
-  
+}
+
   
   $(function () {
   
