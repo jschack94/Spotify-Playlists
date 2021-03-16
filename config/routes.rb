@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :users do
-    resources :albums, :only => [:index, :create, :show, :update, :destroy]
+    resources :albums, :only => [:index, :show, :update, :destroy]
   end
 
-  post '/users/:id/albums/search' => 'albums#search', as: 'album_search'
+  post '/users/:id/albums' => 'albums#create', as: 'album_search'
   get '/auth/spotify/callback' => 'sessions#create'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
